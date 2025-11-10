@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTC Chat Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="marked.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <i class="fas fa-robot"></i>
+                <h3>UTC Chat Assistant</h3>
+            </div>
+            <button id="toggle-mode" class="mode-btn" title="Toggle between popup and page mode">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    Xin chào! Tôi có thể giúp gì cho bạn về hệ thống thông tin sinh viên UTC?
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="input-wrapper">
+                <input type="text" id="chat-input" placeholder="Nhập câu hỏi của bạn..." autocomplete="off">
+                <button id="send-btn" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-footer">
+            <small>Powered by UTC Student Information System</small>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

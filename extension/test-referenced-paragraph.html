@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Referenced Paragraph Display</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="marked.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <i class="fas fa-robot"></i>
+                <h3>UTC Chat Assistant - Test</h3>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <strong>Quy trình, thủ tục xét và công nhận tốt nghiệp – thời gian và số lần xét trong năm</strong>
+                    
+                    <p><strong>1. Thời gian xét công nhận tốt nghiệp</strong></p>
+                    <ul>
+                        <li>Nhà trường thực hiện <strong>xét công nhận tốt nghiệp 2 lần trong năm</strong>:</li>
+                        <li>Ngay sau thời điểm kết thúc <strong>học kỳ 1</strong>.</li>
+                        <li>Ngay sau thời điểm kết thúc <strong>học kỳ 2</strong>.</li>
+                        <li>Nếu cần thiết, trường có thể thực hiện <strong>xét tốt nghiệp bổ sung</strong> (thêm lần xét ngoài hai lần chính).</li>
+                    </ul>
+                    
+                    <p><strong>2. Nội dung và trách nhiệm của sinh viên</strong></p>
+                    <ul>
+                        <li>Sinh viên có trách nhiệm tự kiểm tra các nội dung sau trên phần mềm quản lý đào tạo:</li>
+                        <li>Kết quả học tập.</li>
+                        <li>Thông tin cá nhân (được in trên bằng tốt nghiệp).</li>
+                        <li>Các điều kiện về Giáo dục thể chất, Giáo dục Quốc phòng – An ninh, và Ngoại ngữ.</li>
+                        <li>Nếu phát hiện sai sót, sinh viên <strong>đề nghị sửa sai thông tin cá nhân</strong> hoặc <strong>gửi khiếu nại</strong>.</li>
+                        <li><strong>Thời hạn</strong>: Sinh viên có thời gian <strong>03 năm tính từ khi thôi học</strong> để hoàn thiện các điều kiện còn thiếu và đề nghị xét công nhận tốt nghiệp.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate the referenced paragraph data
+        const referencedParagraphs = [
+            {
+                content: "a) Khối lượng của các học phần phải học lại vượt quá 5% so với tổng số tín chỉ quy định cho toàn chương trình; b) Sinh viên đã bị kỷ luật từ mức cảnh cáo trở lên trong thời gian học. 4. Quy trình, thủ tục xét và công nhận tốt nghiệp, thời gian và số lần xét tốt nghiệp trong năm: a) Nhà trường thực hiện xét công nhận tốt nghiệp 2 lần trong năm ngay sau thời điểm kết thúc học kỳ 1 và học kỳ 2, trường hợp cần thiết có thể thực hiện xét tốt nghiệp bổ sung; b) Sinh viên có trách nhiệm kiểm tra các nội dung về: kết quả học tập, thông tin cá nhân sẽ được in trên bằng tốt nghiệp, các điều kiện Giáo dục thể chất, Giáo dục Quốc phòng - An ninh, Ngoại ngữ trên phần mềm quản lý đào tạo. Nếu có sai sót, sinh viên đề nghị sửa sai thông tin cá nhân hoặc gửi khiếu",
+                metadata: {
+                    page_label: "30",
+                    source: "STSV.pdf",
+                    page: 29
+                }
+            }
+        ];
+        
+        // Add the referenced paragraph to the bot message
+        function addReferencedParagraphImage(messageDiv, paragraph) {
+            // Create a container for the referenced paragraph
+            const refContainer = document.createElement('div');
+            refContainer.className = 'referenced-paragraph';
+            
+            // Create header
+            const header = document.createElement('div');
+            header.className = 'ref-header';
+            header.innerHTML = '<i class="fas fa-file-alt"></i> Tài liệu tham khảo';
+            
+            // Create content
+            const content = document.createElement('div');
+            content.className = 'ref-content';
+            content.textContent = paragraph.content;
+            
+            // Create metadata
+            const metadata = document.createElement('div');
+            metadata.className = 'ref-metadata';
+            if (paragraph.metadata) {
+                const pageInfo = paragraph.metadata.page_label ? `Trang ${paragraph.metadata.page_label}` : '';
+                const sourceInfo = paragraph.metadata.source ? `Nguồn: ${paragraph.metadata.source}` : '';
+                metadata.innerHTML = `<small>${pageInfo} ${sourceInfo}</small>`;
+            }
+            
+            refContainer.appendChild(header);
+            refContainer.appendChild(content);
+            refContainer.appendChild(metadata);
+            
+            messageDiv.appendChild(refContainer);
+        }
+        
+        // Add the referenced paragraph to the existing bot message
+        document.addEventListener('DOMContentLoaded', () => {
+            const botMessage = document.querySelector('.bot-message');
+            addReferencedParagraphImage(botMessage, referencedParagraphs[0]);
+        });
+    </script>
+</body>
+</html>
+

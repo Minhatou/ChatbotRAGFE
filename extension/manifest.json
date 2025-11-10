@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "UTC Student Chat Assistant",
+  "version": "1.0",
+  "description": "AI chat assistant for UTC student information system",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*",
+    "https://sis.utc.edu.vn/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "UTC Chat Assistant"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["marked.min.js", "content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Test - UTC Chat Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="marked.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <i class="fas fa-robot"></i>
+                <h3>Markdown Test</h3>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <h3>Markdown Formatting Examples</h3>
+                    <p>Here are examples of how markdown will be rendered in the chat:</p>
+                    
+                    <h4>Headers</h4>
+                    <h1>H1 Header</h1>
+                    <h2>H2 Header</h2>
+                    <h3>H3 Header</h3>
+                    
+                    <h4>Text Formatting</h4>
+                    <p><strong>Bold text</strong> and <em>italic text</em></p>
+                    
+                    <h4>Lists</h4>
+                    <ul>
+                        <li>Unordered list item 1</li>
+                        <li>Unordered list item 2</li>
+                        <li>Unordered list item 3</li>
+                    </ul>
+                    
+                    <ol>
+                        <li>Ordered list item 1</li>
+                        <li>Ordered list item 2</li>
+                        <li>Ordered list item 3</li>
+                    </ol>
+                    
+                    <h4>Code</h4>
+                    <p>Inline <code>code</code> example</p>
+                    
+                    <pre><code>// Code block example
+function hello() {
+    console.log("Hello, World!");
+    return "Success";
+}</code></pre>
+                    
+                    <h4>Blockquote</h4>
+                    <blockquote>
+                        This is a blockquote example. It can contain multiple lines of text and will be styled with a left border.
+                    </blockquote>
+                    
+                    <h4>Table</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Headers</td>
+                                <td>✅</td>
+                                <td>H1-H6 support</td>
+                            </tr>
+                            <tr>
+                                <td>Lists</td>
+                                <td>✅</td>
+                                <td>Ordered and unordered</td>
+                            </tr>
+                            <tr>
+                                <td>Code</td>
+                                <td>✅</td>
+                                <td>Inline and blocks</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>Links</h4>
+                    <p>Here's a <a href="https://sis.utc.edu.vn" target="_blank">link to UTC SIS</a></p>
+                    
+                    <hr>
+                    
+                    <p><em>All markdown formatting is now supported in the chat responses!</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
